@@ -8,9 +8,10 @@ import {
   Pagination,
   Table
 } from "semantic-ui-react";
-import { data, dataSplit } from "./utils";
-import styles from "./Bill.css";
 
+import { data, dataSplit } from "../utils";
+import styles from "./Bill.css";
+import FormBill from "../form/form-bill";
 export default class Bill extends Component {
   constructor(props) {
     super(props);
@@ -18,7 +19,7 @@ export default class Bill extends Component {
   }
   handlePaginationChange = (e, { activePage }) => this.setState({ activePage });
   componentWillMount() {
-    this.setState({ data: dataSplit(data, 4) });
+    this.setState({ data: dataSplit(data, 6) });
   }
   render() {
     const { data, activePage } = this.state;
@@ -26,9 +27,7 @@ export default class Bill extends Component {
       <Container>
         <Header>Control Panel</Header>
         <Segment>
-          <Button primary />
-          <Button primary />
-          <Button primary />
+          <FormBill />
         </Segment>
         <Divider />
         <Header>Data content</Header>
